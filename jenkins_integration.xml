@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ade292ca-f6bd-4c8b-877d-c3db00da249d" activeEnvironment="Default" name="jenkins_integration" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="RestSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="RestCase"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:RestService" id="b02de95b-0563-43b5-abdc-65ecf23bffe9" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://demoqa.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>https://demoqa.com</con:endpoint></con:endpoints><con:resource name="Books" path="/BookStore/v1/Books" id="103596ca-00f0-47b1-9770-9ebde46a557e"><con:settings/><con:parameters/><con:method name="Books 1" id="20b69c91-9a28-4111-8805-ecf8759dda8c" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:book="https://demoqa.com/BookStore/v1/Books">book:Response</con:element></con:representation><con:request name="Request 1" id="2f70aeae-13c2-46f3-8fcd-3d9a6f96f678" mediaType="application/json"><con:settings/><con:endpoint>https://demoqa.com</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="e3baac15-86d5-4656-b4b3-70aa875a0a4e" name="RestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="fa11ee1a-29ac-4c94-9456-1866e5b58276" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="RestCase" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="RestRequestOne" id="f1ad03dc-9175-4462-b35b-b6414d93419c"><con:settings/><con:config service="https://demoqa.com" resourcePath="/BookStore/v1/Books" methodName="Books 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="RestRequestOne" id="2f70aeae-13c2-46f3-8fcd-3d9a6f96f678" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>https://demoqa.com</con:endpoint><con:request/><con:originalUri>https://demoqa.com/BookStore/v1/Books</con:originalUri><con:assertion type="JsonPath Count" id="6b583a4b-6c26-4d14-a722-ceb9e35a97ab" name="Assert Page Count"><con:configuration><path>$.books[?(@.pages>250)]</path><content>123123</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="d91f93b2-f8e7-429a-80ed-aae3cc9980df" name="Assert The Last ISBN"><con:configuration><path>$.books[-1:].isbn[0]</path><content>9781593277574</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath RegEx Match" id="d0ad1f42-1de3-4654-a4e7-fd17d01f45ca" name="Assert Date Class Format"><con:configuration><path>$.books[*].publish_date</path><content>false</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments><regEx>\[(\s?^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$,?)*\s?\]</regEx></con:configuration></con:assertion><con:assertion type="JsonPath RegEx Match" id="6e000003-e65e-4f0f-b783-427ad25098f6" name="Assert Website URL Format"><con:configuration><path>$.books[*].website</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments><regEx>\[(\s?https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&amp;//=]*),?)*\s?\]</regEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
